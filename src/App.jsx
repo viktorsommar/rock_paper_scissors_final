@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 
+const symbols = ["rock", "paper", "scissors"];
+
 class App extends Component {
   render() {
     return(
-      <button id="play">Play</button>
+      <>
+      <h1>Play a game of Rock Paper Scissors</h1>
+      <div>
+        <button>Play!</button>
+      </div>
+      </>
     )
   }
 }

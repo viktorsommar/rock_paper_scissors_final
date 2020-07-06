@@ -1,6 +1,6 @@
 import React from "react";
 
-const Player = (props) => {
+const Player = ({symbol}) => {
 
   return(
     <div className="ui container">

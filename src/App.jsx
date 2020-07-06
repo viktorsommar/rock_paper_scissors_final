@@ -1,72 +1,56 @@
 import React, { Component } from 'react';
-import Player from "./Player";
-
-const symbols = ["rock", "paper", "scissors"];
+import PlayerCard from "./PlayerCard";
 
 class App extends Component {
-  state = {
-    playerOne: symbols[0],
-    playerTwo: symbols[0],
-    winner: ""
+  constructor(props) {
+    super(props)
+    this.symbols = ["rock", "paper", "scissors"]
+    this.state = {}
+  }
+
+  decideWinner = () => {
+    const {playerOne, playerTwo} = this.state
+    if(playerOne == playerTwo) {
+      return "It's a draw!"
+    }
+    if((playerOne==="rock" && playerTwo==="scissors") ||
+      (playerOne==="paper" && playerTwo==="rock") ||
+      (playerOne==="scissors" && playerTwo==="paper")) {
+        return "Player One wins!"
+      }
+      return "Player Two wins!"
   }
 
   runGame = () => {
-    let count = 0;
-    let gameInterval = setInterval(() => {
-      count++;
+    let counter = 0
+    let myInterval = setInterval(() => {
+      counter++
       this.setState({
-        playerTwo: symbols[Math.floor(Math.random() * symbols.length)],
+        playerOne: this.symbols[Math.floor(Math.random()*3)],
+        playerTwo: this.symbols[Math.floor(Math.random()*3)],
         winner: ""
       })
-      if(count > 5) {
-        clearInterval(gameInterval);
-        this.setState({
-          winner: this.selectWinner()
-        })
+      if(counter > 5) {
+        clearInterval(myInterval)
+        this.setState({winner: this.decideWinner()})
       }
     },100)
   }
 
-  selectWinner = () => {
-    const {playerOne, playerTwo} = this.state;
-
-    if(playerOne === playerTwo) {
-      return "It's a draw!"
-    } else if ((playerOne === "rock" && playerTwo === "scissors") ||
-              (playerOne === "scissors" && playerTwo === "paper") ||
-              (playerOne === "paper" && playerTwo === "rock" ))
-    {
-      return "Player One Wins!"
-    } else {
-      return "Player Two Wins!"
-    }
-  };
-
-  selectSymbol = () => {
-    this.setState({
-      playerOne: symbol,
-      winner: ""
-    })
-  }
-
   render() {
-    const {playerOne, playerTwo, winner} = this.state;
-    return(
-      <>
-      <h1>Play a game of Rock Paper Scissors</h1>
-      <div>
-        <Player symbol={playerOne}/>
-        <Player symbol={playerTwo}/>
+    return (
+      <div className="ui container">
+        <PlayerCard
+          color="red"
+          symbol={this.state.playerOne} 
+        />
+        <PlayerCard
+          color="blue"
+          symbol={this.state.playerTwo}
+        />
+        <p>{this.state.winner}</p>
+        <button onClick={this.runGame}>Run Game</button>
       </div>
-      <div>
-        <button onClick={() => this.selectSymbol('rock')}>Rock</button>
-        <button onClick={() => this.selectSymbol('paper')}>Paper</button>
-        <button onClick={() => this.selectSymbol('scissors')}>Scissors</button>
-      </div>
-      <div className="winner">{winner ? this.selectWinner() : null}</div>
-
-      <button type="button" onClick={this.runGame}>Play!</button>
-      </>
     )
   }
 }

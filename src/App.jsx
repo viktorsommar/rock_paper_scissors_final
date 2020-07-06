@@ -48,8 +48,8 @@ class App extends Component {
           color="blue"
           symbol={this.state.playerTwo}
         />
-        <p>{this.state.winner}</p>
-        <button onClick={this.runGame}>Run Game</button>
+        <p id="message">{this.state.winner}</p>
+        <button id="play" onClick={this.runGame}>Run Game</button>
       </div>
     )
   }

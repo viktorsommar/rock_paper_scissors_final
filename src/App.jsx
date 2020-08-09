@@ -8,32 +8,32 @@ const symbols = ["rock", "paper", "scissors"];
 class App extends Component {
   state = {
     playerOne: [],
-    playerTwo: [],
+    computer: [],
     selectWinner: []
   }
 
   startGame = (event) => {
     const playerOne = event.target.id;
-    const playerTwo = symbols[Math.floor(Math.random() * symbols.length)]
-    const selectWinner = this.selectWinner(playerOne, playerTwo)
+    const computer = symbols[Math.floor(Math.random() * symbols.length)]
+    const selectWinner = this.selectWinner(playerOne, computer)
     this.setState({
       playerOne: playerOne,
-      playerTwo: playerTwo,
+      computer: computer,
       selectWinner: selectWinner
     })
   }
 
-  selectWinner = (playerOne, playerTwo) => {
-    if(playerOne === playerTwo) {
+  selectWinner = (playerOne, computer) => {
+    if(playerOne === computer) {
       return  "It's a draw!"
     } else if (
-      (playerOne === "rock" && playerTwo === "scissors") || 
-      (playerOne === "scissors" && playerTwo === "paper") || 
-      (playerOne === "paper" && playerTwo === "rock")
+      (playerOne === "rock" && computer === "scissors") || 
+      (playerOne === "scissors" && computer === "paper") || 
+      (playerOne === "paper" && computer === "rock")
     ) {
       return "Player One Wins!"
     } else {
-      return "Player Two Wins!"
+      return "Computer Wins!"
     }
   };
 
@@ -51,7 +51,7 @@ class App extends Component {
           <Button id="paper" onClick={this.startGame.bind(this)}>paper</Button>{" "}
           <Button id="scissors" onClick={this.startGame.bind(this)}>scissors</Button>
         </div>
-        <p>You choose {this.state.playerOne} and computer chose {this.state.playerTwo}!</p>
+        <p>You choose {this.state.playerOne} and computer chose {this.state.computer}!</p>
         <p id="message" className="selectWinner">{this.state.selectWinner}</p>
 
 

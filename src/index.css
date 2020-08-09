@@ -16,25 +16,11 @@ h1 {
   text-align: center;
 }
 
-.player {
-  width: 240px;
-  height: 180px;
-  margin: 50px;
-  border-radius: 50%;
-  text-align: center;
-  display: inline-block;
-}
-
 .symbolBtn {
   font-size: 18px;
   border-radius: 25px;
   align-items: center;
   justify-content: center;
-}
-
-.player:nth-child(2) {
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
 }
 
 .winner {
@@ -46,10 +32,6 @@ h1 {
   text-align: center;
   font-weight: bold;
 }
-.player-image {
-  height: 200px;
-  width: auto;
-}
 
 button {
   width: 200px;
@@ -57,11 +39,11 @@ button {
   justify-content: center;
 }
 
-button:hover {
-  cursor: pointer;
+h2 {
+  text-align: center;
 }
 
-h2 {
+h3 {
   text-align: center;
 }
 

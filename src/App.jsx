@@ -65,7 +65,7 @@ class App extends Component {
           {this.state.selectWinner}
         </p>
 
-        <h3>Score</h3>
+        <h3 id="scoretitle">Scoreboard</h3>
         <div id="scoreboard">
           <Score
             playerScore={this.state.playerScore}

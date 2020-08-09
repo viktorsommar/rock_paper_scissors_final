@@ -11,14 +11,18 @@ const Score = (props) => {
           <Grid.Column>
             <Header icon>
               <Icon name='user secret' />
-              Player Score {props.playerScore}
+              Player Score 
+              <br></br>
+              {props.playerScore}
             </Header>
           </Grid.Column>
 
           <Grid.Column>
             <Header icon>
               <Icon name='android' />
-              {props.computerScore} Computer Score
+              Computer Score
+              <br></br>
+              {props.computerScore}
             </Header>
           </Grid.Column>
         </Grid.Row>

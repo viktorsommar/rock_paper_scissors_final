@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "semantic-ui-css/semantic.min.css";
-import { Button, Header, Segment } from "semantic-ui-react";
+import { Button, Header } from "semantic-ui-react";
 import Score from "./components/Score";
 
 const symbols = ["rock", "paper", "scissors"];

@@ -1,38 +1,29 @@
 import React, { Component } from "react";
-import PlayerCard from "./components/PlayerCard";
 import 'semantic-ui-css/semantic.min.css'
-import { Button, Header, Icon } from 'semantic-ui-react';
+import { Button, Header } from 'semantic-ui-react';
 
 
 const symbols = ["rock", "paper", "scissors"];
 
 class App extends Component {
   state = {
-    playerOne: symbols[0],
-    playerTwo: symbols[0],
-    winner: ""
+    playerOne: [],
+    playerTwo: [],
+    selectWinner: []
   }
 
-  startGame = () => {
-    let count = 0;
-    let gameInterval = setInterval(() => {
-      count++;
-      this.setState({
-        playerTwo: symbols[Math.floor(Math.random() * symbols.length)],
-        winner: ""
-      })
-      if(count > 5) {
-        clearInterval(gameInterval)
-        this.setState({
-          winner: this.selectWinner()
-        });
-      }
-    }, 100)
+  startGame = (event) => {
+    const playerOne = event.target.id;
+    const playerTwo = symbols[Math.floor(Math.random() * symbols.length)]
+    const selectWinner = this.selectWinner(playerOne, playerTwo)
+    this.setState({
+      playerOne: playerOne,
+      playerTwo: playerTwo,
+      selectWinner: selectWinner
+    })
   }
 
-  selectWinner = () => {
-    const {playerOne, playerTwo} = this.state;
-    
+  selectWinner = (playerOne, playerTwo) => {
     if(playerOne === playerTwo) {
       return  "It's a draw!"
     } else if (
@@ -46,15 +37,7 @@ class App extends Component {
     }
   };
 
-  selectSymbol = (symbol) => {
-    this.setState({
-      playerOne: symbol,
-      winner: ""
-    })
-  }
-
   render() {
-    const {playerOne, playerTwo, winner} = this.state;
     return (
       <>
       <Header as='h2' icon>
@@ -63,20 +46,15 @@ class App extends Component {
           Play a quick game of rock paper scissors!
         </Header.Subheader>
       </Header>
-
         <div>
-          <PlayerCard symbol={playerOne} />
-          <PlayerCard symbol={playerTwo} />
-
+          <Button id="rock" onClick={this.startGame.bind(this)}>rock</Button>
+          <Button id="paper" onClick={this.startGame.bind(this)}>paper</Button>{" "}
+          <Button id="scissors" onClick={this.startGame.bind(this)}>scissors</Button>
         </div>
-        <div>
-          <Button className="symbolBtn" onClick={() => this.selectSymbol("rock")}>rock</Button>
-          <Button className="symbolBtn" onClick={() => this.selectSymbol("paper")}>paper</Button>{" "}
-          <Button className="symbolBtn" onClick={() => this.selectSymbol("scissors")}>scissors</Button>
-        </div>
-        <p id="message" className="winner">{this.state.winner}</p>
+        <p>You choose {this.state.playerOne} and computer chose {this.state.playerTwo}!</p>
+        <p id="message" className="selectWinner">{this.state.selectWinner}</p>
 
-        <Button type="button" id="play" onClick={this.startGame}>Start</Button>
+
       </>
     )
   }

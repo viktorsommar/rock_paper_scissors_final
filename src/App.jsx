@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "semantic-ui-css/semantic.min.css";
-import { Button, Header } from "semantic-ui-react";
+import { Button, Header, Segment } from "semantic-ui-react";
 import Score from "./components/Score";
 
 const symbols = ["rock", "paper", "scissors"];
@@ -44,20 +44,20 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header as="h2" icon>
+        <Header as="h2">
           Rock Paper Scissors
           <Header.Subheader>
             Play a quick game of rock paper scissors!
           </Header.Subheader>
         </Header>
         <div>
-          <Button id="rock" onClick={this.startGame.bind(this)}>
+          <Button id="rock" onClick={this.startGame}>
             rock
           </Button>
-          <Button id="paper" onClick={this.startGame.bind(this)}>
+          <Button id="paper" onClick={this.startGame}>
             paper
-          </Button>{" "}
-          <Button id="scissors" onClick={this.startGame.bind(this)}>
+          </Button>
+          <Button id="scissors" onClick={this.startGame}>
             scissors
           </Button>
         </div>

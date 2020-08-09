@@ -25,15 +25,15 @@ class App extends Component {
 
   selectWinner = (playerOne, computer) => {
     if(playerOne === computer) {
-      return  "It's a draw!"
+      return  `You have chosen ${playerOne} and computer has chosen ${computer}! It's a draw!`
     } else if (
       (playerOne === "rock" && computer === "scissors") || 
       (playerOne === "scissors" && computer === "paper") || 
       (playerOne === "paper" && computer === "rock")
     ) {
-      return "Player One Wins!"
+      return `You have chosen ${playerOne} and computer has chosen ${computer}! Player One Wins!`
     } else {
-      return "Computer Wins!"
+      return `You have chosen ${playerOne} and computer has chosen ${computer}! Computer Wins!`
     }
   };
 
@@ -51,7 +51,6 @@ class App extends Component {
           <Button id="paper" onClick={this.startGame.bind(this)}>paper</Button>{" "}
           <Button id="scissors" onClick={this.startGame.bind(this)}>scissors</Button>
         </div>
-        <p>You choose {this.state.playerOne} and computer chose {this.state.computer}!</p>
         <p id="message" className="selectWinner">{this.state.selectWinner}</p>
 
 

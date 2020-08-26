@@ -44,26 +44,28 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header as="h2">
-          Rock Paper Scissors
+        <Header size="huge">
+          <h1>Rock Paper Scissors</h1>
           <Header.Subheader>
-            Play a quick game of rock paper scissors!
+            <h2>Play a quick game of rock paper scissors!</h2>
           </Header.Subheader>
         </Header>
         <div>
-          <Button id="rock" onClick={this.startGame}>
-            rock
+          <Button id="rock" color='blue' onClick={this.startGame}>
+            Rock
           </Button>
-          <Button id="paper" onClick={this.startGame}>
-            paper
+          <Button id="paper" color='blue' onClick={this.startGame}>
+            Paper
           </Button>
-          <Button id="scissors" onClick={this.startGame}>
-            scissors
+          <Button id="scissors" color='blue' onClick={this.startGame}>
+            Scissors
           </Button>
         </div>
-        <p id="message" className="selectWinner">
-          {this.state.selectWinner}
-        </p>
+        <Header size="small">
+          <p id="message" className="selectWinner">
+            {this.state.selectWinner}
+          </p>
+        </Header>
 
         <h3 id="scoretitle">Scoreboard</h3>
         <div id="scoreboard">

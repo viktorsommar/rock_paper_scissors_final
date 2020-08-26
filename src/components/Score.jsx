@@ -5,11 +5,11 @@ const Score = (props) => {
   return(
     <Segment placeholder id="scoreboard">
       <Grid columns={2} stackable textAlign='center'>
-        <Divider vertical>VS</Divider>
+        <Divider vertical id="divider">VS</Divider>
 
         <Grid.Row verticalAlign='middle'>
           <Grid.Column>
-            <Header icon>
+            <Header icon id="user-icon">
               <Icon name='user secret' />
               Player Score 
               <br></br>
@@ -18,8 +18,8 @@ const Score = (props) => {
           </Grid.Column>
 
           <Grid.Column>
-            <Header icon>
-              <Icon name='android' />
+            <Header icon id="computer-icon">
+              <Icon name='android'/>
               Computer Score
               <br></br>
               {props.computerScore}

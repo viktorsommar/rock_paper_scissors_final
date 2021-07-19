@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to play
+
+Visit the deployed application on https://rockpaperscissorsreact.netlify.app/ or launch local with `yarn start`.
+
+It is you vs a computer. Make your choice by cliking on of "Rock", "Paper" or "Scissors". The computer's choice will be randomized and the winner gets a point. Rock beats scissors, scissors beats paper and paper beats rock. If both choices are the same, the result will be a draw and no one gets a point.
+
+Have fun!
+
 ## Available Scripts
 
 In the project directory, you can run:
